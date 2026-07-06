@@ -15,6 +15,18 @@ class HomeScreen extends ConsumerWidget {
         itemBuilder: (context, index) {
           final DetailItem = item[index];
           return ListTile(
+            trailing: Row(
+              mainAxisSize: .min,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.remove),
+                  onPressed: () {
+                    ref.read(ItemProvider.notifier).DeleteItme(DetailItem.id);
+                  },
+                ),
+                IconButton(icon: Icon(Icons.edit), onPressed: () {}),
+              ],
+            ),
             title: Text(item[index].name),
             subtitle: Text(item[index].description),
           );

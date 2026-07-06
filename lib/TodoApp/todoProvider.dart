@@ -13,11 +13,21 @@ class ItemNotifier extends StateNotifier<List<todoItems>> {
   void AddItem(String name, String Descriptions) {
     final items = todoItems(
       description: Descriptions,
-      id: DateTime.now().millisecond,
+      id: DateTime.now().millisecond.toString(),
       name: name,
     );
 
     state.add(items);
+    state = state.toList();
+  }
+
+  void DeleteItme(String id) {
+    state.removeWhere((item) => item.id == id);
+    state = state.toList();
+  }
+  void Updateitem(String id) {
+    state.indexWhere((item) => item.id == id);
+
     state = state.toList();
   }
 }
