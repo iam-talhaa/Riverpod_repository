@@ -9,5 +9,4 @@ final bool fav;
 Itemsmodel({required this.Descriptions,required this.fav,required this.name})
 
 
-Itemsmodel
 }
